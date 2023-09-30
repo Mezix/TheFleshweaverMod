@@ -3,8 +3,15 @@
         "NAME": "Placeholder Power",
         "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
 },
-"theFleshweaver:RarePower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
-}
+        "theFleshweaver:RarePower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
+        },
+
+
+        "theFleshweaver:MagicalRotPower": {
+                "NAME": "Magical Rot",
+                "DESCRIPTIONS": ["Deal #r",
+                                 " damage at the end of your Turn to EVERYONE."]
+        }
 }

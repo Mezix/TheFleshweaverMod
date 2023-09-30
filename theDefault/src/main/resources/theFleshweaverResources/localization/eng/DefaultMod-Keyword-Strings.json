@@ -16,5 +16,14 @@
       "multikeyword"
     ],
     "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
-  }
+  },
+  {
+    "PROPER_NAME": "Magical Rot",
+  "NAMES": [
+    "Magical Rot",
+    "magical_rot",
+    "magicalrot"
+  ],
+  "DESCRIPTION": "Deal 1 Damage at the end of Turn for each 10 Magical Rot to EVERYONE."
+}
 ]

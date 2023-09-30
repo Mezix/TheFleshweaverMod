@@ -1,12 +1,12 @@
 {
   "theFleshweaver:DefaultCharacter": {
     "NAMES": [
-      "The Default",
-      "the Default"
+      "The Fleshweaver",
+      "the Fleshweaver"
     ],
     "TEXT": [
-      "THE_DEFAULT exists and is valid. THE_DEFAULT wishes to T o uuuch# NL Second placeholder line of description text.",
-      "NL You TOUCH the heart.",
+      "A past adventurer driven by deep rooted greed, they lost all semblance of their humanity in a desperate bid to become their own companionship. NL Harness flesh itself to remake yourself in whatever image you see fit.",
+      "NL Thorns impale themselves in the heart.",
       "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~basic~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
     ]
   }

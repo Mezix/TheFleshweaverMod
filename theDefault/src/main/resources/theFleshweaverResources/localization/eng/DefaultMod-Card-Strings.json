@@ -49,5 +49,11 @@
   "theFleshweaver:OrbSkill": {
     "NAME": "Get Orb",
     "DESCRIPTION": "Channel 1 Default Orb."
+  },
+
+
+  "theFleshweaver:Contemplate": {
+    "NAME": "Contemplate",
+    "DESCRIPTION": "Gain !M! Thaumaturgy and !theFleshweaver:SecondMagic! !theFleshweaver:Magical_Rot! ."
   }
 }
