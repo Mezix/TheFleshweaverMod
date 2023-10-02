@@ -1,12 +1,9 @@
 package theFleshweaver.powers;
 
-import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -14,23 +11,22 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import theFleshweaver.DefaultMod;
+import theFleshweaver.TheFleshweaverMod;
 import theFleshweaver.util.TextureLoader;
 
-import static theFleshweaver.DefaultMod.makePowerPath;
+import static theFleshweaver.TheFleshweaverMod.makePowerPath;
 
 //Gain 1 dex for the turn for each card played.
 
 public class MagicalRotPower extends AbstractPower{
     public AbstractCreature source;
 
-    public static final String POWER_ID = DefaultMod.makeID("MagicalRotPower");
+    public static final String POWER_ID = TheFleshweaverMod.makeID("MagicalRotPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
+    private static final Texture texture128 = TextureLoader.getTexture(makePowerPath("MagicalRot_128.png"));
+    private static final Texture texture48 = TextureLoader.getTexture(makePowerPath("MagicalRot_48.png"));
 
     int magicalRotDamage = 0;
 
@@ -45,9 +41,9 @@ public class MagicalRotPower extends AbstractPower{
         type = PowerType.BUFF;
         isTurnBased = false;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
-        updateMagicalRotDamageAmount();
+        this.region128 = new TextureAtlas.AtlasRegion(texture128, 0, 0, 128, 128);
+        this.region48 = new TextureAtlas.AtlasRegion(texture48, 0, 0, 48, 48);
+        updateDescription();
     }
 
     private void updateMagicalRotDamageAmount() {

@@ -4,7 +4,7 @@ import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import theFleshweaver.cards.AbstractDefaultCard;
 
-import static theFleshweaver.DefaultMod.makeID;
+import static theFleshweaver.TheFleshweaverMod.makeID;
 
 public class DefaultSecondMagicNumber extends DynamicVariable {
 

@@ -19,11 +19,33 @@
   },
   {
     "PROPER_NAME": "Magical Rot",
-  "NAMES": [
+   "NAMES": [
     "Magical Rot",
+    "Magical_Rot",
     "magical_rot",
     "magicalrot"
   ],
-  "DESCRIPTION": "Deal 1 Damage at the end of Turn for each 10 Magical Rot to EVERYONE."
-}
+  "DESCRIPTION": "Deal 1 Damage for each 10 Magical Rot at the end of your Turn to EVERYONE."
+},
+  {
+    "PROPER_NAME": "Thaumaturgy",
+    "NAMES": [
+      "Thaumaturgy",
+      "thaumaturgy"],
+    "DESCRIPTION": "Affects the efficiency of your spellcasting."
+  },
+  {
+    "PROPER_NAME": "Lethality",
+    "NAMES": [
+      "Lethality",
+      "lethality"],
+    "DESCRIPTION": "Affects the efficiency of your damaging attacks."
+  },
+  {
+    "PROPER_NAME": "Vitality",
+    "NAMES": [
+      "Vitality",
+      "vitality"],
+    "DESCRIPTION": "Affects the efficiency of your defensive abilities."
+  }
 ]

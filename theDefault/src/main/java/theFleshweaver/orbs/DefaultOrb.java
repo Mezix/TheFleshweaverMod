@@ -20,14 +20,14 @@ import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
 
 import basemod.abstracts.CustomOrb;
-import theFleshweaver.DefaultMod;
+import theFleshweaver.TheFleshweaverMod;
 
-import static theFleshweaver.DefaultMod.makeOrbPath;
+import static theFleshweaver.TheFleshweaverMod.makeOrbPath;
 
 public class DefaultOrb extends CustomOrb {
 
     // Standard ID/Description
-    public static final String ORB_ID = DefaultMod.makeID("DefaultOrb");
+    public static final String ORB_ID = TheFleshweaverMod.makeID("DefaultOrb");
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     public static final String[] DESCRIPTIONS = orbString.DESCRIPTION;
 

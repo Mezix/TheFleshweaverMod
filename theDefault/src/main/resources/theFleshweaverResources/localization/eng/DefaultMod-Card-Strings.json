@@ -1,59 +1,22 @@
 {
-  "theFleshweaver:DefaultCommonAttack": {
+  "theFleshweaver:BasicStrike": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage. NL [#0000ff]This[] [#ff0000]Is[] [#ffff00]How[] [#88888]color[] [#ff00ff]works.[]"
+    "DESCRIPTION": "Deal !D! damage."
   },
-  "theFleshweaver:DefaultCommonSkill": {
+  "theFleshweaver:BasicDefend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block. NL thefleshweaver:Multiword_Keyword."
+    "DESCRIPTION": "Gain !B! Block."
   },
-  "theFleshweaver:DefaultCommonPower": {
-    "NAME": "Hold Place",
-    "DESCRIPTION": "Gain !M! thefleshweaver:Keyword.",
-    "UPGRADE_DESCRIPTION": "Gain !M! thefleshweaver:Keywords."
-  },
-  "theFleshweaver:DefaultUncommonAttack": {
-    "NAME": "Big slap",
+  "theFleshweaver:RitualStaff": {
+    "NAME": "Ritual Staff",
     "DESCRIPTION": "Deal !D! damage."
   },
-  "theFleshweaver:DefaultUncommonSkill": {
-    "NAME": "A Better Defend",
-    "DESCRIPTION": "Gain !B! Plated Armor. Affected by Dexterity."
+  "theFleshweaver:RitualOrb": {
+    "NAME": "Ritual Orb",
+    "DESCRIPTION": "Gain !B! Block."
   },
-  "theFleshweaver:DefaultUncommonPower": {
-    "NAME": "Weirdness",
-    "DESCRIPTION": "Gain X thefleshweaver:Keywords.",
-    "UPGRADE_DESCRIPTION": "Gain X +1 thefleshweaver:Keywords."
-  },
-  "theFleshweaver:DefaultRareAttack": {
-    "NAME": "TOUCH",
-    "DESCRIPTION": "Deal !D! damage."
-  },
-  "theFleshweaver:DefaultRareSkill": {
-    "NAME": "For Each Loop x2",
-    "DESCRIPTION": "Apply !M! Vulnerable to all enemies, 2 times.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to all enemies, 3 times."
-  },
-  "theFleshweaver:DefaultRarePower": {
-    "NAME": "In-Progress Form",
-    "DESCRIPTION": "At the start of your turn, play a TOUCH."
-  },
-  "theFleshweaver:DefaultAttackWithVariable": {
-    "NAME": "Special Strike",
-    "DESCRIPTION": "Deal !D! damage [E] times. NL (Deal !theFleshweaver:ENERGY_DAMAGE! damage total.)"
-  },
-  "theFleshweaver:DefaultSecondMagicNumberSkill": {
-    "NAME": "Cool 2 Number Card",
-    "DESCRIPTION": "Apply !M! Vulnerable and !theFleshweaver:SecondMagic! poison to an enemy."
-  },
-  "theFleshweaver:OrbSkill": {
-    "NAME": "Get Orb",
-    "DESCRIPTION": "Channel 1 Default Orb."
-  },
-
-
   "theFleshweaver:Contemplate": {
     "NAME": "Contemplate",
-    "DESCRIPTION": "Gain !M! Thaumaturgy and !theFleshweaver:SecondMagic! !theFleshweaver:Magical_Rot! ."
+    "DESCRIPTION": "Gain !M! theFleshweaver:Thaumaturgy and !theFleshweaver:SecondMagic! theFleshweaver:Magical_Rot."
   }
 }

@@ -3,11 +3,11 @@ package theFleshweaver.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import theFleshweaver.DefaultMod;
+import theFleshweaver.TheFleshweaverMod;
 import theFleshweaver.util.TextureLoader;
 
-import static theFleshweaver.DefaultMod.makeRelicOutlinePath;
-import static theFleshweaver.DefaultMod.makeRelicPath;
+import static theFleshweaver.TheFleshweaverMod.makeRelicOutlinePath;
+import static theFleshweaver.TheFleshweaverMod.makeRelicPath;
 
 public class PlaceholderRelic extends CustomRelic {
 
@@ -18,7 +18,7 @@ public class PlaceholderRelic extends CustomRelic {
      */
 
     // ID, images, text.
-    public static final String ID = DefaultMod.makeID("PlaceholderRelic");
+    public static final String ID = TheFleshweaverMod.makeID("PlaceholderRelic");
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));

@@ -1,17 +1,19 @@
 {
-"theFleshweaver:CommonPower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
-},
-        "theFleshweaver:RarePower": {
-                "NAME": "Placeholder Power",
-                "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
-        },
-
-
         "theFleshweaver:MagicalRotPower": {
                 "NAME": "Magical Rot",
                 "DESCRIPTIONS": ["Deal #r",
-                                 " damage at the end of your Turn to EVERYONE."]
+                        " damage at the end of your Turn to EVERYONE."]
+        },
+        "theFleshweaver:LethalityPower": {
+        "NAME": "Lethality",
+        "DESCRIPTIONS": ["Affects the efficiency of damaging attacks."]
+        },
+        "theFleshweaver:ThaumaturgyPower": {
+                "NAME": "Thaumaturgy",
+                "DESCRIPTIONS": ["Affects the efficiency of your spellcasting."]
+        },
+        "theFleshweaver:VitalityPower": {
+                "NAME": "Vitality",
+                "DESCRIPTIONS": ["Affects the efficiency of defensive abilities."]
         }
 }
