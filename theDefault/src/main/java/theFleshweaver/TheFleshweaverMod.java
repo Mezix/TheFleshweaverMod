@@ -24,10 +24,7 @@ import theFleshweaver.cards.*;
 import theFleshweaver.characters.TheFleshweaver;
 import theFleshweaver.events.IdentityCrisisEvent;
 import theFleshweaver.potions.PlaceholderPotion;
-import theFleshweaver.relics.BottledPlaceholderRelic;
-import theFleshweaver.relics.DefaultClickableRelic;
-import theFleshweaver.relics.PlaceholderRelic;
-import theFleshweaver.relics.PlaceholderRelic2;
+import theFleshweaver.relics.DruidicToken;
 import theFleshweaver.util.IDCheckDontTouchPls;
 import theFleshweaver.util.TextureLoader;
 import theFleshweaver.variables.DefaultCustomVariable;
@@ -123,7 +120,7 @@ public class TheFleshweaverMod implements
     
     // Character assets
     private static final String THE_DEFAULT_BUTTON = "theFleshweaverResources/images/charSelect/DefaultCharacterButton.png";
-    private static final String THE_DEFAULT_PORTRAIT = "theFleshweaverResources/images/charSelect/DefaultCharacterPortraitBG.png";
+    private static final String THE_DEFAULT_PORTRAIT = "theFleshweaverResources/images/charSelect/The_Fleshweaver_Splash_Art.png";
     public static final String THE_DEFAULT_SHOULDER_1 = "theFleshweaverResources/images/char/defaultCharacter/shoulder.png";
     public static final String THE_DEFAULT_SHOULDER_2 = "theFleshweaverResources/images/char/defaultCharacter/shoulder2.png";
     public static final String THE_DEFAULT_CORPSE = "theFleshweaverResources/images/char/defaultCharacter/corpse.png";
@@ -392,17 +389,13 @@ public class TheFleshweaverMod implements
         // in order to automatically differentiate which pool to add the relic too.
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheFleshweaver.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheFleshweaver.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheFleshweaver.Enums.COLOR_GRAY);
-        
+        BaseMod.addRelicToCustomPool(new DruidicToken(), TheFleshweaver.Enums.COLOR_GRAY);
         // This adds a relic to the Shared pool. Every character can find this relic.
-        BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
         
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
         // (the others are all starters so they're marked as seen in the character file)
-        UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
+        UnlockTracker.markRelicAsSeen(DruidicToken.ID);
         logger.info("Done adding relics!");
     }
     

@@ -23,9 +23,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theFleshweaver.TheFleshweaverMod;
 import theFleshweaver.cards.*;
-import theFleshweaver.relics.DefaultClickableRelic;
-import theFleshweaver.relics.PlaceholderRelic;
-import theFleshweaver.relics.PlaceholderRelic2;
+import theFleshweaver.relics.DruidicToken;
 
 import java.util.ArrayList;
 
@@ -64,8 +62,8 @@ public class TheFleshweaver extends CustomPlayer {
     public static final int STARTING_HP = 75;
     public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
-    public static final int CARD_DRAW = 9;
-    public static final int ORB_SLOTS = 3;
+    public static final int CARD_DRAW = 5;
+    public static final int ORB_SLOTS = 0;
 
     // =============== /BASE STATS/ =================
 
@@ -177,15 +175,11 @@ public class TheFleshweaver extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
-        retVal.add(PlaceholderRelic.ID);
-        retVal.add(PlaceholderRelic2.ID);
-        retVal.add(DefaultClickableRelic.ID);
+        retVal.add(DruidicToken.ID);
 
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
-        UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
-        UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
-        UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
+        UnlockTracker.markRelicAsSeen(DruidicToken.ID);
 
         return retVal;
     }

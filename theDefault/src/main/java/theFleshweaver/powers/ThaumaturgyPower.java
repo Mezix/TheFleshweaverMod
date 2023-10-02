@@ -23,8 +23,8 @@ public class ThaumaturgyPower extends AbstractPower{
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private static final Texture texture128 = TextureLoader.getTexture(makePowerPath("MagicalRot_128.png"));
-    private static final Texture texture48 = TextureLoader.getTexture(makePowerPath("MagicalRot_48.png"));
+    private static final Texture texture128 = TextureLoader.getTexture(makePowerPath("Thaumaturgy_128.png"));
+    private static final Texture texture48 = TextureLoader.getTexture(makePowerPath("Thaumaturgy_48.png"));
 
     public ThaumaturgyPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
