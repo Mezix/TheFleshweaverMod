@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theFleshweaver.TheFleshweaverMod;
+import theFleshweaver.actions.GainStatAction;
+import theFleshweaver.patches.CurrentLargestStat;
 import theFleshweaver.powers.LethalityPower;
 import theFleshweaver.powers.ThaumaturgyPower;
 import theFleshweaver.powers.VitalityPower;
@@ -30,9 +32,8 @@ public class DruidicToken extends CustomRelic {
     @Override
     public void atBattleStartPreDraw()
     {
-        AbstractPlayer p = AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThaumaturgyPower(p, p, 4)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LethalityPower(p, p, 4)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new VitalityPower(p, p, 4)));
+        AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, 4, CurrentLargestStat.StatType.Lethality));
+        AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, 4, CurrentLargestStat.StatType.Vitality));
+        AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, 4, CurrentLargestStat.StatType.Thaumaturgy));
     }
 }

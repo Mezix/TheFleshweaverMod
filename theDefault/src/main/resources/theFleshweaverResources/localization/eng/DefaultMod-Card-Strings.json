@@ -9,11 +9,17 @@
   },
   "theFleshweaver:RitualStaff": {
     "NAME": "Ritual Staff",
-    "DESCRIPTION": "Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage. Transforms according to your largest stat.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage.",
+      " Inflict !M! Vulnerable.",
+      " Gain !B! Block. Deal damage equal to your theFleshweaver:Vitality to all attacking Enemies.",
+      " Deal Damage equal to your Magical Rot to all Enemies. Gain !theFleshweaver:SecondMagic! theFleshweaver:Magical_Rot."]
   },
   "theFleshweaver:RitualOrb": {
     "NAME": "Ritual Orb",
-    "DESCRIPTION": "Gain !B! Block."
+    "DESCRIPTION": "Gain !B! Block. Gain 1 Random Stat.",
+    "UPGRADE_DESCRIPTION:": "Gain !B! Block. Gain 1 Stat of your choosing."
   },
   "theFleshweaver:Contemplate": {
     "NAME": "Contemplate",

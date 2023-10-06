@@ -3,14 +3,19 @@ package theFleshweaver.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theFleshweaver.TheFleshweaverMod;
+import theFleshweaver.actions.GainStatAction;
 import theFleshweaver.characters.TheFleshweaver;
+import theFleshweaver.patches.CurrentLargestStat;
 import theFleshweaver.powers.LethalityPower;
 import theFleshweaver.powers.ThaumaturgyPower;
 import theFleshweaver.powers.VitalityPower;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theFleshweaver.TheFleshweaverMod.makeCardPath;
 
 public class RitualOrb extends AbstractDynamicCard {
@@ -21,10 +26,10 @@ public class RitualOrb extends AbstractDynamicCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_GRAY;
+    private static final CardStrings STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
 
     private static final int COST = 1;
-    private static final int BLOCK = 5;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int BLOCK = 3;
     private static final int MAGIC_NUMBER = 1;
 
     public RitualOrb() {
@@ -37,7 +42,9 @@ public class RitualOrb extends AbstractDynamicCard {
     public void upgrade() {
         if(!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
+            this.rawDescription = "Gain !B! Block. Gain 1 Stat of your choosing.";
+            //this.rawDescription = STRINGS.UPGRADE_DESCRIPTION; //TODO: this crashes for some reason
+            this.initializeDescription();
         }
     }
 
@@ -47,15 +54,17 @@ public class RitualOrb extends AbstractDynamicCard {
         if(!upgraded)
         {
             int randomInt = (int) Math.floor(Math.random() * 3);
-            if (randomInt == 0) AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThaumaturgyPower(p, p, magicNumber)));
-            else if(randomInt == 1) AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LethalityPower(p, p, magicNumber)));
-            else AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new VitalityPower(p, p, magicNumber)));
+            if (randomInt == 0) AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, CurrentLargestStat.StatType.Lethality));
+            else if(randomInt == 1) AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, CurrentLargestStat.StatType.Vitality));
+            else AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, CurrentLargestStat.StatType.Thaumaturgy));
         }
         else
         {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThaumaturgyPower(p, p, magicNumber)));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LethalityPower(p, p, magicNumber)));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new VitalityPower(p, p, magicNumber)));
+            //TODO: Stat choosing screen similar to Wish from the Watcher
+
+            AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, CurrentLargestStat.StatType.Lethality));
+            AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, CurrentLargestStat.StatType.Vitality));
+            AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, CurrentLargestStat.StatType.Thaumaturgy));
         }
     }
 }
