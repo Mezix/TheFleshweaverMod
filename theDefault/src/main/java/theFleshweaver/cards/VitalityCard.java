@@ -13,7 +13,7 @@ import static theFleshweaver.TheFleshweaverMod.makeCardPath;
 
 public class VitalityCard extends AbstractDynamicCard {
     public static final String ID = TheFleshweaverMod.makeID(VitalityCard.class.getSimpleName());
-    public static final String IMG = makeCardPath("RitualOrb.png");
+    public static final String IMG = makeCardPath("RitualStaffV.png");
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.NONE;
     private static final CardType TYPE = CardType.POWER;

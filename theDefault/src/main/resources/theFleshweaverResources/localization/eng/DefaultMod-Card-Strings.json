@@ -12,7 +12,7 @@
     "DESCRIPTION": "Deal !D! damage. Morphs into a different version depending on your highest stat.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage.",
-      " Inflict !M! Vulnerable.",
+      " Apply !M! Vulnerable.",
       " Gain !B! Block. Deal damage equal to your theFleshweaver:Vitality to all attacking Enemies.",
       " Deal Damage equal to your Magical Rot to all Enemies. Gain !theFleshweaver:SecondMagic! theFleshweaver:Magical_Rot."]
   },
@@ -21,20 +21,28 @@
     "DESCRIPTION": "Gain !B! Block. Gain 1 Random Stat.",
     "UPGRADE_DESCRIPTION:": "Gain !B! Block. Gain 1 Stat of your choosing."
   },
-  "theFleshweaver:Contemplate": {
-    "NAME": "Contemplate",
-    "DESCRIPTION": "Gain !M! theFleshweaver:Thaumaturgy and !theFleshweaver:SecondMagic! theFleshweaver:Magical_Rot."
-  },
   "theFleshweaver:LethalityCard": {
     "NAME": "Lethality",
-    "DESCRIPTION": "Gain !M! Lethality."
+    "DESCRIPTION": "Gain !M! theFleshweaver:Lethality."
   },
   "theFleshweaver:VitalityCard": {
     "NAME": "Vitality",
-    "DESCRIPTION": "Gain !M! Vitality."
+    "DESCRIPTION": "Gain !M! theFleshweaver:Vitality."
   },
   "theFleshweaver:ThaumaturgyCard": {
     "NAME": "Thaumaturgy",
-    "DESCRIPTION": "Gain !M! Thaumaturgy."
+    "DESCRIPTION": "Gain !M! theFleshweaver:Thaumaturgy."
+  },
+  "theFleshweaver:DefensiveThorns": {
+    "NAME": "Defensive Thorns",
+    "DESCRIPTION": "Gain !B! Block. Gain !M! theFleshweaver:Vitality."
+  },
+  "theFleshweaver:ThornsEdge": {
+    "NAME": "Thorn's Edge",
+    "DESCRIPTION": "Deal !D! damage. Gain !M! theFleshweaver:Lethality."
+  },
+  "theFleshweaver:Contemplate": {
+    "NAME": "Contemplate",
+    "DESCRIPTION": "Gain !M! theFleshweaver:Thaumaturgy and !theFleshweaver:SecondMagic! theFleshweaver:Magical_Rot."
   }
 }

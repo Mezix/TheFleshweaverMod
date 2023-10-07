@@ -68,14 +68,12 @@ public class RitualOrb extends AbstractDynamicCard {
         }
         else
         {
-            //TODO: Stat choosing screen similar to Wish from the Watcher
+            ArrayList<AbstractCard> statChoices = new ArrayList();
+            statChoices.add(new LethalityCard());
+            statChoices.add(new VitalityCard());
+            statChoices.add(new ThaumaturgyCard());
 
-            ArrayList<AbstractCard> stanceChoices = new ArrayList();
-            stanceChoices.add(new LethalityCard());
-            stanceChoices.add(new VitalityCard());
-            stanceChoices.add(new ThaumaturgyCard());
-
-            this.addToBot(new ChooseOneAction(stanceChoices));
+            this.addToBot(new ChooseOneAction(statChoices));
         }
     }
 }

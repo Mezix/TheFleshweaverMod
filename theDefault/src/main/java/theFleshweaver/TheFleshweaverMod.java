@@ -2,7 +2,6 @@ package theFleshweaver;
 
 import basemod.*;
 import basemod.eventUtil.AddEventParams;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -283,13 +282,13 @@ public class TheFleshweaverMod implements
     
     @Override
     public void receiveEditCharacters() {
-        logger.info("Beginning to edit characters. " + "Add " + TheFleshweaver.Enums.THE_DEFAULT.toString());
+        logger.info("Beginning to edit characters. " + "Add " + TheFleshweaver.Enums.THE_FLESHWEAVER.toString());
         
-        BaseMod.addCharacter(new TheFleshweaver("the Default", TheFleshweaver.Enums.THE_DEFAULT),
-                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheFleshweaver.Enums.THE_DEFAULT);
+        BaseMod.addCharacter(new TheFleshweaver("the Default", TheFleshweaver.Enums.THE_FLESHWEAVER),
+                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheFleshweaver.Enums.THE_FLESHWEAVER);
         
         receiveEditPotions();
-        logger.info("Added " + TheFleshweaver.Enums.THE_DEFAULT.toString());
+        logger.info("Added " + TheFleshweaver.Enums.THE_FLESHWEAVER.toString());
     }
     
     // =============== /LOAD THE CHARACTER/ =================
@@ -347,7 +346,7 @@ public class TheFleshweaverMod implements
         // Since this is a builder these method calls (outside of create()) can be skipped/added as necessary
         AddEventParams eventParams = new AddEventParams.Builder(IdentityCrisisEvent.ID, IdentityCrisisEvent.class) // for this specific event
             .dungeonID(TheCity.ID) // The dungeon (act) this event will appear in
-            .playerClass(TheFleshweaver.Enums.THE_DEFAULT) // Character specific event
+            .playerClass(TheFleshweaver.Enums.THE_FLESHWEAVER) // Character specific event
             .create();
 
         // Add the event
@@ -367,7 +366,7 @@ public class TheFleshweaverMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheFleshweaver.Enums.THE_DEFAULT);
+        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheFleshweaver.Enums.THE_FLESHWEAVER);
         
         logger.info("Done editing potions");
     }

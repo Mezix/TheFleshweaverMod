@@ -33,6 +33,7 @@ public class BasicDefend extends AbstractDynamicCard {
         if(!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
+            initializeDescription();
         }
     }
 
