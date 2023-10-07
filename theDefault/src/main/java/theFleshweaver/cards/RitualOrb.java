@@ -2,6 +2,11 @@ package theFleshweaver.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.optionCards.BecomeAlmighty;
+import com.megacrit.cardcrawl.cards.optionCards.FameAndFortune;
+import com.megacrit.cardcrawl.cards.optionCards.LiveForever;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,6 +19,9 @@ import theFleshweaver.patches.CurrentLargestStat;
 import theFleshweaver.powers.LethalityPower;
 import theFleshweaver.powers.ThaumaturgyPower;
 import theFleshweaver.powers.VitalityPower;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theFleshweaver.TheFleshweaverMod.makeCardPath;
@@ -62,9 +70,12 @@ public class RitualOrb extends AbstractDynamicCard {
         {
             //TODO: Stat choosing screen similar to Wish from the Watcher
 
-            AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, CurrentLargestStat.StatType.Lethality));
-            AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, CurrentLargestStat.StatType.Vitality));
-            AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, CurrentLargestStat.StatType.Thaumaturgy));
+            ArrayList<AbstractCard> stanceChoices = new ArrayList();
+            stanceChoices.add(new LethalityCard());
+            stanceChoices.add(new VitalityCard());
+            stanceChoices.add(new ThaumaturgyCard());
+
+            this.addToBot(new ChooseOneAction(stanceChoices));
         }
     }
 }

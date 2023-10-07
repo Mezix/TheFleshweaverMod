@@ -9,7 +9,7 @@
   },
   "theFleshweaver:RitualStaff": {
     "NAME": "Ritual Staff",
-    "DESCRIPTION": "Deal !D! damage. Transforms according to your largest stat.",
+    "DESCRIPTION": "Deal !D! damage. Morphs into a different version depending on your highest stat.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage.",
       " Inflict !M! Vulnerable.",
@@ -24,5 +24,17 @@
   "theFleshweaver:Contemplate": {
     "NAME": "Contemplate",
     "DESCRIPTION": "Gain !M! theFleshweaver:Thaumaturgy and !theFleshweaver:SecondMagic! theFleshweaver:Magical_Rot."
+  },
+  "theFleshweaver:LethalityCard": {
+    "NAME": "Lethality",
+    "DESCRIPTION": "Gain !M! Lethality."
+  },
+  "theFleshweaver:VitalityCard": {
+    "NAME": "Vitality",
+    "DESCRIPTION": "Gain !M! Vitality."
+  },
+  "theFleshweaver:ThaumaturgyCard": {
+    "NAME": "Thaumaturgy",
+    "DESCRIPTION": "Gain !M! Thaumaturgy."
   }
 }
