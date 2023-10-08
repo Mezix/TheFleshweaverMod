@@ -15,5 +15,9 @@
         "theFleshweaver:VitalityPower": {
                 "NAME": "Vitality",
                 "DESCRIPTIONS": ["Affects the efficiency of defensive abilities."]
+        },
+        "theFleshweaver:InfectedVeinsPower": {
+                "NAME": "Infected Veins",
+                "DESCRIPTIONS": ["Draw 1 Card each time you gain 1 Magical Rot."]
         }
 }

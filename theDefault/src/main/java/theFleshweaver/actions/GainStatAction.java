@@ -16,7 +16,6 @@ public class GainStatAction extends AbstractGameAction {
         this.amount = amount;
         this.typeToAdd = type;
         this.target = target;
-        System.out.println(type.toString());
     }
 
     @Override

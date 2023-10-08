@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theFleshweaver.TheFleshweaverMod;
+import theFleshweaver.actions.GainMagicalRotAction;
 import theFleshweaver.actions.GainStatAction;
 import theFleshweaver.characters.TheFleshweaver;
 import theFleshweaver.patches.CurrentLargestStat;
@@ -34,7 +35,7 @@ public class Contemplate extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, magicNumber, CurrentLargestStat.StatType.Thaumaturgy));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new MagicalRotPower(p, p, defaultSecondMagicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new GainMagicalRotAction(AbstractDungeon.player, defaultSecondMagicNumber));
     }
 
     //Upgraded stats.

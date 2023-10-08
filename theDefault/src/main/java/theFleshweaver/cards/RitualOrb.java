@@ -34,7 +34,6 @@ public class RitualOrb extends AbstractDynamicCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_GRAY;
-    private static final CardStrings STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
 
     private static final int COST = 1;
     private static final int BLOCK = 3;

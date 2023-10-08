@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import theFleshweaver.TheFleshweaverMod;
+import theFleshweaver.actions.GainMagicalRotAction;
 import theFleshweaver.characters.TheFleshweaver;
 import theFleshweaver.patches.CurrentLargestStat;
 import theFleshweaver.powers.MagicalRotPower;
@@ -128,7 +129,7 @@ public class RitualStaff extends AbstractDynamicCard {
 
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters)
                 if (!mo.isDeadOrEscaped()) AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, new DamageInfo(p, magicalRotAmount, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new MagicalRotPower(p, p, defaultSecondMagicNumber)));
+            AbstractDungeon.actionManager.addToBottom(new GainMagicalRotAction(AbstractDungeon.player, defaultSecondMagicNumber));
         }
     }
 }

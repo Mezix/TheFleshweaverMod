@@ -9,7 +9,7 @@
   },
   "theFleshweaver:RitualStaff": {
     "NAME": "Ritual Staff",
-    "DESCRIPTION": "Deal !D! damage. Morphs into a different version depending on your highest stat.",
+    "DESCRIPTION": "Deal !D! damage. NL Morphs into a different version depending on your highest stat.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage.",
       " Apply !M! Vulnerable.",
@@ -44,5 +44,16 @@
   "theFleshweaver:Contemplate": {
     "NAME": "Contemplate",
     "DESCRIPTION": "Gain !M! theFleshweaver:Thaumaturgy and !theFleshweaver:SecondMagic! theFleshweaver:Magical_Rot."
+  },
+  "theFleshweaver:DrippingIdol": {
+    "NAME": "Dripping Idol",
+    "DESCRIPTION": "Unplayable. NL Gain !M! theFleshweaver:Magical_Rot each time you draw this card.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this card."
+    ]
+  },
+  "theFleshweaver:InfectedVeins": {
+    "NAME": "Infected Veins",
+    "DESCRIPTION": "Draw !M! card each time you gain theFleshweaver:Magical_Rot."
   }
 }
