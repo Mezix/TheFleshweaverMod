@@ -34,7 +34,7 @@ public class DefensiveThorns extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, CurrentLargestStat.StatType.Vitality));
+        AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, 0, magicNumber, 0, true));
     }
 
     @Override

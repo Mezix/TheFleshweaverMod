@@ -34,11 +34,10 @@ public class Contemplate extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, magicNumber, CurrentLargestStat.StatType.Thaumaturgy));
+        AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, 0,0, magicNumber, true));
         AbstractDungeon.actionManager.addToBottom(new GainMagicalRotAction(AbstractDungeon.player, defaultSecondMagicNumber));
     }
 
-    //Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {

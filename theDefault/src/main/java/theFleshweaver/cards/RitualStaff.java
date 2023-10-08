@@ -2,10 +2,7 @@ package theFleshweaver.cards;
 
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -19,6 +16,7 @@ import theFleshweaver.characters.TheFleshweaver;
 import theFleshweaver.patches.CurrentLargestStat;
 import theFleshweaver.powers.MagicalRotPower;
 import theFleshweaver.powers.VitalityPower;
+import theFleshweaver.util.UtilityClass;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theFleshweaver.TheFleshweaverMod.makeCardPath;
@@ -50,7 +48,7 @@ public class RitualStaff extends AbstractDynamicCard {
 
     //  Thaumaturgy
     public static final String IMG_THAUMATURGY = makeCardPath("RitualStaffT.png");
-    private static final int SECOND_MAGIC_NUMBER = 5;
+    private static final int SECOND_MAGIC_NUMBER = 4; // Magical Rot gain amount
 
     public RitualStaff() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -104,32 +102,39 @@ public class RitualStaff extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
         CurrentLargestStat.StatType stat = CurrentLargestStat.currentLargestStat.get(AbstractDungeon.actionManager);
         if(stat.equals(CurrentLargestStat.StatType.Lethality))
         {
-            this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
         }
         else if(stat.equals(CurrentLargestStat.StatType.Vitality))
         {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, this.block));
 
-            int VitAmount = 0;
-            if(AbstractDungeon.player.hasPower(VitalityPower.POWER_ID)) VitAmount = AbstractDungeon.player.getPower(VitalityPower.POWER_ID).amount;
-            System.out.println(VitAmount);
+            int VitAmount = UtilityClass.GetVitality(AbstractDungeon.player);
+            if(VitAmount > 0)
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters)
                 if (!mo.isDeadOrEscaped()) if(mo.intent.equals(AbstractMonster.Intent.ATTACK))AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, new DamageInfo(p, VitAmount, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
         else if(stat.equals(CurrentLargestStat.StatType.Thaumaturgy))
         {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+
             int magicalRotAmount = 0;
             if(AbstractDungeon.player.hasPower(MagicalRotPower.POWER_ID)) magicalRotAmount = AbstractDungeon.player.getPower(MagicalRotPower.POWER_ID).amount;
+                if(magicalRotAmount > 0)
+                    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters)
+                        if (!mo.isDeadOrEscaped()) AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, new DamageInfo(p, magicalRotAmount, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
-            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters)
-                if (!mo.isDeadOrEscaped()) AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, new DamageInfo(p, magicalRotAmount, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, MagicalRotPower.POWER_ID));
             AbstractDungeon.actionManager.addToBottom(new GainMagicalRotAction(AbstractDungeon.player, defaultSecondMagicNumber));
+        }
+        else
+        {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
     }
 }

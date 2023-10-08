@@ -47,5 +47,12 @@
       "Vitality",
       "vitality"],
     "DESCRIPTION": "Affects the efficiency of your defensive abilities."
+  },
+  {
+    "PROPER_NAME": "Weave",
+    "NAMES": [
+      "Weave",
+      "weave"],
+    "DESCRIPTION": "Triggered when your highest stat is changed."
   }
 ]

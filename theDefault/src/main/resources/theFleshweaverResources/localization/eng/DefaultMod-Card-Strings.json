@@ -13,8 +13,8 @@
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage.",
       " Apply !M! Vulnerable.",
-      " Gain !B! Block. Deal damage equal to your theFleshweaver:Vitality to all attacking Enemies.",
-      " Deal Damage equal to your Magical Rot to all Enemies. Gain !theFleshweaver:SecondMagic! theFleshweaver:Magical_Rot."]
+      " Gain !B! Block. NL Deal damage equal to your theFleshweaver:Vitality to all attacking Enemies.",
+      " Deal Damage equal to your theFleshweaver:Magical_Rot Rot to all Enemies. Lose all your theFleshweaver:Magical_Rot. NL Gain !theFleshweaver:SecondMagic! theFleshweaver:Magical_Rot."]
   },
   "theFleshweaver:RitualOrb": {
     "NAME": "Ritual Orb",
@@ -55,5 +55,9 @@
   "theFleshweaver:InfectedVeins": {
     "NAME": "Infected Veins",
     "DESCRIPTION": "Draw !M! card each time you gain theFleshweaver:Magical_Rot."
+  },
+  "theFleshweaver:BullheadedCharge": {
+    "NAME": "Bull-Headed Charge",
+    "DESCRIPTION": "Deal !D! Damage. NL Enemies lose HP equal to your theFleshweaver:Lethality. NL theFleshweaver:Lethality !M!: Lose !theFleshweaver:SecondMagic! theFleshweaver:Lethality."
   }
 }

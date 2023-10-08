@@ -9,13 +9,19 @@ import theFleshweaver.patches.CurrentLargestStat;
 import theFleshweaver.powers.LethalityPower;
 import theFleshweaver.powers.ThaumaturgyPower;
 import theFleshweaver.powers.VitalityPower;
+import theFleshweaver.util.UtilityClass;
 
 public class GainStatAction extends AbstractGameAction {
-    public CurrentLargestStat.StatType typeToAdd;
-    public GainStatAction(AbstractCreature target, int amount, CurrentLargestStat.StatType type) {
-        this.amount = amount;
-        this.typeToAdd = type;
+    int LethalityAmount;
+    int VitalityAmount;
+    int ThaumaturgyAmount;
+    boolean shouldWeave;
+    public GainStatAction(AbstractCreature target, int lethality, int vitality, int thaumaturgy, boolean triggerWeave) {
+        this.LethalityAmount = lethality;
+        this.VitalityAmount = vitality;
+        this.ThaumaturgyAmount = thaumaturgy;
         this.target = target;
+        this.shouldWeave = triggerWeave;
     }
 
     @Override
@@ -23,39 +29,44 @@ public class GainStatAction extends AbstractGameAction {
         if (!target.isDying && !target.isDead) {
             if (target instanceof AbstractPlayer)
             {
+                if(LethalityAmount == 0 && VitalityAmount == 0 && ThaumaturgyAmount == 0)
+                {
+                    this.isDone = true;
+                    return;
+                }
+
                 CurrentLargestStat.StatType oldLargestStat = CurrentLargestStat.currentLargestStat.get(AbstractDungeon.actionManager);
 
-                //  Gain the Stat
+                System.out.println("OLD: Largest Stat is: " + oldLargestStat.toString());
+                //  Gain the Stats
 
-                if(typeToAdd.equals(CurrentLargestStat.StatType.Lethality))
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new LethalityPower(target, target, amount)));
-                else if(typeToAdd.equals(CurrentLargestStat.StatType.Vitality))
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new VitalityPower(target, target, amount)));
-                else if(typeToAdd.equals(CurrentLargestStat.StatType.Thaumaturgy))
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new ThaumaturgyPower(target, target, amount)));
-                else System.out.println("Tried to add stat of type 'None'! Returning");
+                if(LethalityAmount != 0) AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new LethalityPower(target, target, LethalityAmount)));
+                if(VitalityAmount != 0) AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new VitalityPower(target, target, VitalityAmount)));
+                if(ThaumaturgyAmount != 0) AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new ThaumaturgyPower(target, target, ThaumaturgyAmount)));
 
                 //  Calculate Largest Stat
 
                 CurrentLargestStat.StatType newLargestStat;
-                int LAmount = 0, VAmount = 0, TAmount = 0;
 
-                if(target.hasPower(LethalityPower.POWER_ID)) LAmount = target.getPower(LethalityPower.POWER_ID).amount;
-                if(target.hasPower(VitalityPower.POWER_ID)) VAmount = target.getPower(VitalityPower.POWER_ID).amount;
-                if(target.hasPower(ThaumaturgyPower.POWER_ID)) TAmount = target.getPower(ThaumaturgyPower.POWER_ID).amount;
+                int LAmount = UtilityClass.GetLethality(target);
+                int VAmount = UtilityClass.GetVitality(target);
+                int TAmount = UtilityClass.GetThaumaturgy(target);
 
-                //  adding the power doesnt work fast enough, so we need to add a 1 to the counter
-                if(typeToAdd.equals(CurrentLargestStat.StatType.Lethality)) LAmount +=1;
-                if(typeToAdd.equals(CurrentLargestStat.StatType.Vitality)) VAmount +=1;
-                if(typeToAdd.equals(CurrentLargestStat.StatType.Thaumaturgy)) TAmount +=1;
+                //  adding the power doesnt work fast enough, so we need to add the new values to the temp values
+                LAmount += LethalityAmount;
+                VAmount += VitalityAmount;
+                TAmount += ThaumaturgyAmount;
 
                 if(LAmount == VAmount && LAmount == TAmount) newLargestStat = CurrentLargestStat.StatType.None;
                 else if (LAmount > VAmount && LAmount > TAmount) newLargestStat = CurrentLargestStat.StatType.Lethality;
                 else if (VAmount > TAmount) newLargestStat = CurrentLargestStat.StatType.Vitality;
                 else newLargestStat = CurrentLargestStat.StatType.Thaumaturgy;
-
-                System.out.println("Largest Stat is: " + newLargestStat.toString());
-                if(!oldLargestStat.equals(newLargestStat)) CurrentLargestStat.SetLargestStat(newLargestStat);
+                System.out.println("L: " + LAmount + " - V: " + VAmount + " - T: " + TAmount);
+                System.out.println("NEW: Largest Stat is: " + newLargestStat.toString());
+                if(!oldLargestStat.equals(newLargestStat)) {
+                    CurrentLargestStat.SetLargestStat(newLargestStat);
+                    if(shouldWeave) AbstractDungeon.actionManager.addToBottom(new WeaveAction());
+                }
             }
         }
         this.isDone = true;

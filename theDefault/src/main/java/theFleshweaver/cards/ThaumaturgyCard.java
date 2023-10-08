@@ -33,7 +33,7 @@ public class ThaumaturgyCard extends AbstractDynamicCard {
 
     public void onChoseThisOption() {
         AbstractPlayer p = AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, CurrentLargestStat.StatType.Thaumaturgy));
+        AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, 0,0,magicNumber, true));
     }
 
     public void upgrade() {

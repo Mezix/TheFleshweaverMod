@@ -33,7 +33,7 @@ public class LethalityCard extends AbstractDynamicCard {
 
     public void onChoseThisOption() {
         AbstractPlayer p = AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, CurrentLargestStat.StatType.Lethality));
+        AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber,0,0, true));
     }
 
     public void upgrade() {

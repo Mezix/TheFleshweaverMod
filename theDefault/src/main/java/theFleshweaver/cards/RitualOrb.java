@@ -51,7 +51,7 @@ public class RitualOrb extends AbstractDynamicCard {
         if(!upgraded) {
             upgradeName();
             isInnate = true;
-            this.rawDescription = "Innate. Gain !B! Block. Gain 1 Stat of your choosing.";
+            this.rawDescription = "Innate. Gain !B! Block. Gain 1 Stat of your choosing. Exhaust.";
             //this.rawDescription = STRINGS.UPGRADE_DESCRIPTION; //TODO: this crashes for some reason
             this.initializeDescription();
         }

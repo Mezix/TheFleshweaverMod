@@ -33,7 +33,7 @@ public class VitalityCard extends AbstractDynamicCard {
 
     public void onChoseThisOption() {
         AbstractPlayer p = AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, CurrentLargestStat.StatType.Vitality));
+        AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, 0, magicNumber, 0, true));
     }
 
     public void upgrade() {
