@@ -18,8 +18,8 @@
   },
   "theFleshweaver:RitualOrb": {
     "NAME": "Ritual Orb",
-    "DESCRIPTION": "Gain !B! Block. Gain 1 Random Stat.",
-    "UPGRADE_DESCRIPTION:": "Gain !B! Block. Gain 1 Stat of your choosing."
+    "DESCRIPTION": "Gain !B! Block. Gain 1 Stat of your choosing. NL Exhaust.",
+    "UPGRADE_DESCRIPTION:": "Innate. NL Gain !B! Block. Gain 1 Stat of your choosing. NL Exhaust."
   },
   "theFleshweaver:LethalityCard": {
     "NAME": "Lethality",

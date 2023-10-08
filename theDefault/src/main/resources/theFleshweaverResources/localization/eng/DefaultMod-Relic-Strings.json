@@ -3,7 +3,7 @@
     "NAME": "Druidic Token",
     "FLAVOR": "A vestige of an identity now lost to you.",
     "DESCRIPTIONS": [
-      "Deal 3 Damage each time you Weave."
+      "Deal 3 Damage each time you Weave. Gain 4 Lethality, Vitality and Thaumaturgy."
     ]
   }
 }

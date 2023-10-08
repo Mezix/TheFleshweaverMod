@@ -20,10 +20,8 @@ public class GainMagicalRotAction extends AbstractGameAction {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new MagicalRotPower(target, target, amount)));
 
             if (target instanceof AbstractPlayer)
-            {
-                target.hasPower(InfectedVeinsPower.POWER_ID);
-                AbstractDungeon.actionManager.addToBottom(new DrawCardAction(target, target.getPower(InfectedVeinsPower.POWER_ID).amount));
-            }
+                if(target.hasPower(InfectedVeinsPower.POWER_ID))
+                    AbstractDungeon.actionManager.addToBottom(new DrawCardAction(target, target.getPower(InfectedVeinsPower.POWER_ID).amount));
         }
         this.isDone = true;
     }

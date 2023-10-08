@@ -43,13 +43,15 @@ public class RitualOrb extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = MAGIC_NUMBER;
+        this.exhaust = true;
     }
 
     @Override
     public void upgrade() {
         if(!upgraded) {
             upgradeName();
-            this.rawDescription = "Gain !B! Block. Gain 1 Stat of your choosing.";
+            isInnate = true;
+            this.rawDescription = "Innate. Gain !B! Block. Gain 1 Stat of your choosing.";
             //this.rawDescription = STRINGS.UPGRADE_DESCRIPTION; //TODO: this crashes for some reason
             this.initializeDescription();
         }
@@ -58,6 +60,14 @@ public class RitualOrb extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, this.block));
+
+        ArrayList<AbstractCard> statChoices = new ArrayList();
+        statChoices.add(new LethalityCard());
+        statChoices.add(new VitalityCard());
+        statChoices.add(new ThaumaturgyCard());
+
+        this.addToBot(new ChooseOneAction(statChoices));
+        /*
         if(!upgraded)
         {
             int randomInt = (int) Math.floor(Math.random() * 3);
@@ -67,12 +77,6 @@ public class RitualOrb extends AbstractDynamicCard {
         }
         else
         {
-            ArrayList<AbstractCard> statChoices = new ArrayList();
-            statChoices.add(new LethalityCard());
-            statChoices.add(new VitalityCard());
-            statChoices.add(new ThaumaturgyCard());
-
-            this.addToBot(new ChooseOneAction(statChoices));
-        }
+        }*/
     }
 }
