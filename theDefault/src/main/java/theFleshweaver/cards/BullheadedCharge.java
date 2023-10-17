@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theFleshweaver.TheFleshweaverMod;
 import theFleshweaver.actions.GainStatAction;
 import theFleshweaver.characters.TheFleshweaver;
-import theFleshweaver.patches.CurrentLargestStat;
 import theFleshweaver.util.UtilityClass;
 
 import static theFleshweaver.TheFleshweaverMod.makeCardPath;
@@ -22,7 +21,7 @@ public class BullheadedCharge extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_TEAL;
 
     private static final int COST = 2;
     private static final int DAMAGE = 12;

@@ -1,6 +1,5 @@
 package theFleshweaver.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -8,8 +7,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theFleshweaver.TheFleshweaverMod;
 import theFleshweaver.actions.GainStatAction;
 import theFleshweaver.characters.TheFleshweaver;
-import theFleshweaver.patches.CurrentLargestStat;
-import theFleshweaver.powers.MagicalRotPower;
 
 import static theFleshweaver.TheFleshweaverMod.makeCardPath;
 
@@ -19,7 +16,7 @@ public class DefensiveThorns extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_TEAL;
     private static final int BLOCK = 6;
     private static final int UPGRADE_PLUS_BLOCK = 3;
     private static final int MAGIC_NUMBER = 1;

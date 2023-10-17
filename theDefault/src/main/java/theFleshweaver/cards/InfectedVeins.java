@@ -12,11 +12,11 @@ import static theFleshweaver.TheFleshweaverMod.makeCardPath;
 
 public class InfectedVeins extends AbstractDynamicCard {
     public static final String ID = TheFleshweaverMod.makeID(InfectedVeins.class.getSimpleName());
-    public static final String IMG = makeCardPath("Contemplate.png");
+    public static final String IMG = makeCardPath("InfectedVeins.png");
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_TEAL;
     private static final int MAGIC_NUMBER = 1;
     private static final int COST = 2;
 

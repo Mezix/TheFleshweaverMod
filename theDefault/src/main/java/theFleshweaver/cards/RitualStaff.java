@@ -15,10 +15,8 @@ import theFleshweaver.actions.GainMagicalRotAction;
 import theFleshweaver.characters.TheFleshweaver;
 import theFleshweaver.patches.CurrentLargestStat;
 import theFleshweaver.powers.MagicalRotPower;
-import theFleshweaver.powers.VitalityPower;
 import theFleshweaver.util.UtilityClass;
 
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theFleshweaver.TheFleshweaverMod.makeCardPath;
 
 public class RitualStaff extends AbstractDynamicCard {
@@ -28,7 +26,7 @@ public class RitualStaff extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_TEAL;
 
     private static final int COST = 1;
     private static final int DAMAGE = 7;
@@ -75,21 +73,25 @@ public class RitualStaff extends AbstractDynamicCard {
         if(stat.equals(CurrentLargestStat.StatType.Lethality))
         {
             IMG = IMG_LETHALITY;
+            name = "Ritual Sword";
             rawDescription = STRINGS.EXTENDED_DESCRIPTION[0] + STRINGS.EXTENDED_DESCRIPTION[1];
         }
         else if(stat.equals(CurrentLargestStat.StatType.Vitality))
         {
             IMG = IMG_VITALITY;
+            name = "Ritual Shield";
             rawDescription = STRINGS.EXTENDED_DESCRIPTION[0] + STRINGS.EXTENDED_DESCRIPTION[2];
         }
         else if(stat.equals(CurrentLargestStat.StatType.Thaumaturgy))
         {
             IMG = IMG_THAUMATURGY;
+            name = "Ritual Wand";
             rawDescription = STRINGS.EXTENDED_DESCRIPTION[0] + STRINGS.EXTENDED_DESCRIPTION[3];
         }
         else
         {
             IMG = IMG_DEFAULT;
+            name = "Ritual Staff";
             rawDescription = STRINGS.DESCRIPTION;
         }
 

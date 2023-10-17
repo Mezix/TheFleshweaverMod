@@ -15,12 +15,12 @@ import static theFleshweaver.TheFleshweaverMod.makeCardPath;
 
 public class DrippingIdol extends AbstractDynamicCard {
     public static final String ID = TheFleshweaverMod.makeID(DrippingIdol.class.getSimpleName());
-    public static final String IMG = makeCardPath("Contemplate.png");
+    public static final String IMG = makeCardPath("DrippingIdol.png");
     private static final CardStrings STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_TEAL;
     private static final int MAGIC_NUMBER = 5;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 3;
     private static final int COST = -2;

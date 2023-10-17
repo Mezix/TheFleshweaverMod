@@ -1,29 +1,16 @@
 package theFleshweaver.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.optionCards.BecomeAlmighty;
-import com.megacrit.cardcrawl.cards.optionCards.FameAndFortune;
-import com.megacrit.cardcrawl.cards.optionCards.LiveForever;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theFleshweaver.TheFleshweaverMod;
-import theFleshweaver.actions.GainStatAction;
 import theFleshweaver.characters.TheFleshweaver;
-import theFleshweaver.patches.CurrentLargestStat;
-import theFleshweaver.powers.LethalityPower;
-import theFleshweaver.powers.ThaumaturgyPower;
-import theFleshweaver.powers.VitalityPower;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theFleshweaver.TheFleshweaverMod.makeCardPath;
 
 public class RitualOrb extends AbstractDynamicCard {
@@ -33,7 +20,7 @@ public class RitualOrb extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_TEAL;
 
     private static final int COST = 1;
     private static final int BLOCK = 3;

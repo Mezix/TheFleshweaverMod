@@ -90,7 +90,7 @@ public class TheFleshweaverMod implements
     
     // Colors (RGB)
     // Character Color
-    public static final Color DEFAULT_GRAY = CardHelper.getColor(64.0f, 70.0f, 70.0f);
+    public static final Color FLESHWEAVER_TEAL = CardHelper.getColor(0, 128, 106);
     
     // Potion Colors in RGB
     public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
@@ -118,7 +118,7 @@ public class TheFleshweaverMod implements
     private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "theFleshweaverResources/images/1024/card_default_gray_orb.png";
     
     // Character assets
-    private static final String THE_DEFAULT_BUTTON = "theFleshweaverResources/images/charSelect/DefaultCharacterButton.png";
+    private static final String THE_DEFAULT_BUTTON = "theFleshweaverResources/images/charSelect/FleshweaverCharacterButton.png";
     private static final String THE_DEFAULT_PORTRAIT = "theFleshweaverResources/images/charSelect/The_Fleshweaver_Splash_Art.png";
     public static final String THE_DEFAULT_SHOULDER_1 = "theFleshweaverResources/images/char/defaultCharacter/shoulder.png";
     public static final String THE_DEFAULT_SHOULDER_2 = "theFleshweaverResources/images/char/defaultCharacter/shoulder2.png";
@@ -168,17 +168,7 @@ public class TheFleshweaverMod implements
         logger.info("Subscribe to BaseMod hooks");
         
         BaseMod.subscribe(this);
-        
-      /*
-           (   ( /(  (     ( /( (            (  `   ( /( )\ )    )\ ))\ )
-           )\  )\()) )\    )\()))\ )   (     )\))(  )\()|()/(   (()/(()/(
-         (((_)((_)((((_)( ((_)\(()/(   )\   ((_)()\((_)\ /(_))   /(_))(_))
-         )\___ _((_)\ _ )\ _((_)/(_))_((_)  (_()((_) ((_|_))_  _(_))(_))_
-        ((/ __| || (_)_\(_) \| |/ __| __| |  \/  |/ _ \|   \  |_ _||   (_)
-         | (__| __ |/ _ \ | .` | (_ | _|  | |\/| | (_) | |) |  | | | |) |
-          \___|_||_/_/ \_\|_|\_|\___|___| |_|  |_|\___/|___/  |___||___(_)
-      */
-      
+
         setModID("theFleshweaver");
         // cool
         // TODO: NOW READ THIS!!!!!!!!!!!!!!!:
@@ -198,10 +188,10 @@ public class TheFleshweaverMod implements
         
         logger.info("Done subscribing");
         
-        logger.info("Creating the color " + TheFleshweaver.Enums.COLOR_GRAY.toString());
+        logger.info("Creating the color " + TheFleshweaver.Enums.COLOR_TEAL.toString());
         
-        BaseMod.addColor(TheFleshweaver.Enums.COLOR_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
-                DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
+        BaseMod.addColor(TheFleshweaver.Enums.COLOR_TEAL, FLESHWEAVER_TEAL.cpy(), FLESHWEAVER_TEAL.cpy(), FLESHWEAVER_TEAL.cpy(),
+                FLESHWEAVER_TEAL.cpy(), FLESHWEAVER_TEAL.cpy(), FLESHWEAVER_TEAL.cpy(), FLESHWEAVER_TEAL.cpy(),
                 ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
                 ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
                 ENERGY_ORB_DEFAULT_GRAY_PORTRAIT, CARD_ENERGY_ORB);
@@ -388,7 +378,7 @@ public class TheFleshweaverMod implements
         // in order to automatically differentiate which pool to add the relic too.
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        BaseMod.addRelicToCustomPool(new DruidicToken(), TheFleshweaver.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new DruidicToken(), TheFleshweaver.Enums.COLOR_TEAL);
         // This adds a relic to the Shared pool. Every character can find this relic.
         
         // Mark relics as seen - makes it visible in the compendium immediately

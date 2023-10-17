@@ -1,6 +1,5 @@
 package theFleshweaver.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -8,9 +7,6 @@ import theFleshweaver.TheFleshweaverMod;
 import theFleshweaver.actions.GainMagicalRotAction;
 import theFleshweaver.actions.GainStatAction;
 import theFleshweaver.characters.TheFleshweaver;
-import theFleshweaver.patches.CurrentLargestStat;
-import theFleshweaver.powers.MagicalRotPower;
-import theFleshweaver.powers.ThaumaturgyPower;
 
 import static theFleshweaver.TheFleshweaverMod.makeCardPath;
 
@@ -20,7 +16,7 @@ public class Contemplate extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheFleshweaver.Enums.COLOR_TEAL;
     private static final int MAGIC_NUMBER = 1; // Thaumaturgy
     private static final int SECOND_MAGIC_NUMBER = 5; // Magical Rot
     private static final int UPGRADE_PLUS_SECOND_MAGIC_NUMBER = 5;
