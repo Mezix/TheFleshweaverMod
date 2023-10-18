@@ -54,5 +54,14 @@
       "Weave",
       "weave"],
     "DESCRIPTION": "Triggered when your highest stat is changed."
+  },
+  {
+    "PROPER_NAME": "Thorn Volley",
+    "NAMES": [
+      "Thorn Volley",
+      "Thorn_Volley",
+      "thorn_volley",
+      "thornvolley"],
+    "DESCRIPTION": "Orb: Deal Damage equal to your Lethality to a random Enemy. Evoke automatically at the end of your turn."
   }
 ]

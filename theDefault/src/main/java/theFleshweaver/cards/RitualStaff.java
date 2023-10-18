@@ -53,7 +53,7 @@ public class RitualStaff extends AbstractDynamicCard {
         baseDamage = damage = DAMAGE;
         baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = MAGIC_NUMBER;
-        defaultBaseSecondMagicNumber = defaultSecondMagicNumber = SECOND_MAGIC_NUMBER;
+        baseSecondMagicNumber = secondMagicNumber = SECOND_MAGIC_NUMBER;
 
         //this.cardsToPreview = new VitalityCard().makeCopy();
         MultiCardPreview.add(this, new LethalityCard(), new VitalityCard(), new ThaumaturgyCard());
@@ -132,7 +132,7 @@ public class RitualStaff extends AbstractDynamicCard {
                         if (!mo.isDeadOrEscaped()) AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, new DamageInfo(p, magicalRotAmount, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
             this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, MagicalRotPower.POWER_ID));
-            AbstractDungeon.actionManager.addToBottom(new GainMagicalRotAction(AbstractDungeon.player, defaultSecondMagicNumber));
+            AbstractDungeon.actionManager.addToBottom(new GainMagicalRotAction(AbstractDungeon.player, secondMagicNumber));
         }
         else
         {

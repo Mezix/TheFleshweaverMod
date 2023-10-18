@@ -25,13 +25,13 @@ public class Contemplate extends AbstractDynamicCard {
     public Contemplate() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC_NUMBER;
-        defaultBaseSecondMagicNumber = defaultSecondMagicNumber = SECOND_MAGIC_NUMBER;
+        baseSecondMagicNumber = secondMagicNumber = SECOND_MAGIC_NUMBER;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, 0,0, magicNumber, true));
-        AbstractDungeon.actionManager.addToBottom(new GainMagicalRotAction(AbstractDungeon.player, defaultSecondMagicNumber));
+        AbstractDungeon.actionManager.addToBottom(new GainMagicalRotAction(AbstractDungeon.player, secondMagicNumber));
     }
 
     @Override

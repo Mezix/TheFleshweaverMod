@@ -1,7 +1,7 @@
 package theFleshweaver.characters;
 
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
+import basemod.animations.SpineAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -47,9 +47,9 @@ public class TheFleshweaver extends CustomPlayer {
     public static class Enums {
         @SpireEnum
         public static AbstractPlayer.PlayerClass THE_FLESHWEAVER;
-        @SpireEnum(name = "FLESHWEAVER_TEAL_COVER") // These two HAVE to have the same absolutely identical name.
+        @SpireEnum(name = "FLESHWEAVER_TEAL_COLOR") // These two HAVE to have the same absolutely identical name.
         public static AbstractCard.CardColor COLOR_TEAL;
-        @SpireEnum(name = "FLESHWEAVER_TEAL_COVER") @SuppressWarnings("unused")
+        @SpireEnum(name = "FLESHWEAVER_TEAL_COLOR") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
 
@@ -100,8 +100,7 @@ public class TheFleshweaver extends CustomPlayer {
     public TheFleshweaver(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures,
                 "theFleshweaverResources/images/char/defaultCharacter/orb/vfx.png", null,
-                new SpriterAnimation(
-                        "theFleshweaverResources/images/char/defaultCharacter/Spriter/theDefaultAnimation.scml"));
+                new SpineAnimation(THE_FLESHWEAVER_SKELETON_ATLAS, THE_FLESHWEAVER_SKELETON_JSON, 1.0f));
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================  
@@ -119,10 +118,10 @@ public class TheFleshweaver extends CustomPlayer {
         // =============== ANIMATIONS =================  
 
         loadAnimation(
-                THE_DEFAULT_SKELETON_ATLAS,
-                THE_DEFAULT_SKELETON_JSON,
+                THE_FLESHWEAVER_SKELETON_ATLAS,
+                THE_FLESHWEAVER_SKELETON_JSON,
                 1.0f);
-        AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
+        AnimationState.TrackEntry e = state.setAnimation(0, "Idle", true);
         e.setTime(e.getEndTime() * MathUtils.random());
 
         // =============== /ANIMATIONS/ =================

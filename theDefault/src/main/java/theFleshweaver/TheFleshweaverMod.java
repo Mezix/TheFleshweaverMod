@@ -128,8 +128,8 @@ public class TheFleshweaverMod implements
     public static final String BADGE_IMAGE = "theFleshweaverResources/images/Badge.png";
     
     // Atlas and JSON files for the Animations
-    public static final String THE_DEFAULT_SKELETON_ATLAS = "theFleshweaverResources/images/char/defaultCharacter/skeleton.atlas";
-    public static final String THE_DEFAULT_SKELETON_JSON = "theFleshweaverResources/images/char/defaultCharacter/skeleton.json";
+    public static final String THE_FLESHWEAVER_SKELETON_ATLAS = "theFleshweaverResources/images/char/defaultCharacter/skeleton.atlas";
+    public static final String THE_FLESHWEAVER_SKELETON_JSON = "theFleshweaverResources/images/char/defaultCharacter/skeleton.json";
     
     // =============== MAKE IMAGE PATHS =================
     

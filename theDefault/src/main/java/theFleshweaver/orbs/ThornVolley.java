@@ -7,7 +7,10 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.defect.DecreaseMaxOrbAction;
+import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -21,18 +24,19 @@ import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
 
 import basemod.abstracts.CustomOrb;
 import theFleshweaver.TheFleshweaverMod;
+import theFleshweaver.util.UtilityClass;
 
 import static theFleshweaver.TheFleshweaverMod.makeOrbPath;
 
-public class DefaultOrb extends CustomOrb {
+public class ThornVolley extends CustomOrb {
 
     // Standard ID/Description
-    public static final String ORB_ID = TheFleshweaverMod.makeID("DefaultOrb");
+    public static final String ORB_ID = TheFleshweaverMod.makeID("ThornVolley");
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     public static final String[] DESCRIPTIONS = orbString.DESCRIPTION;
 
-    private static final int PASSIVE_AMOUNT = 3;
-    private static final int EVOKE_AMOUNT = 1;
+    private static final int PASSIVE_AMOUNT = 4; // Damage on evoke
+    private static final int EVOKE_AMOUNT = 1; // Turns to evoke
 
     // Animation Rendering Numbers - You can leave these at default, or play around with them and see what they change.
     private float vfxTimer = 1.0f;
@@ -41,13 +45,13 @@ public class DefaultOrb extends CustomOrb {
     private static final float ORB_WAVY_DIST = 0.04f;
     private static final float PI_4 = 12.566371f;
 
-    public DefaultOrb() {
+    public ThornVolley() {
         // The passive/evoke description we pass in here, specifically, don't matter
         // You can ctrl+click on CustomOrb from the `extends CustomOrb` above.
         // You'll see below we override CustomOrb's updateDescription function with our own, and also, that's where the passiveDescription and evokeDescription
         // parameters are used. If your orb doesn't use any numbers/doesn't change e.g "Evoke: shuffle your draw pile."
         // then you don't need to override the update description method and can just pass in the parameters here.
-        super(ORB_ID, orbString.NAME, PASSIVE_AMOUNT, EVOKE_AMOUNT, DESCRIPTIONS[1], DESCRIPTIONS[3], makeOrbPath("default_orb.png"));
+        super(ORB_ID, orbString.NAME, PASSIVE_AMOUNT, EVOKE_AMOUNT, DESCRIPTIONS[0], DESCRIPTIONS[1], makeOrbPath("default_orb.png"));
 
         updateDescription();
 
@@ -57,27 +61,21 @@ public class DefaultOrb extends CustomOrb {
 
     @Override
     public void updateDescription() { // Set the on-hover description of the orb
-        applyFocus(); // Apply Focus (Look at the next method)
-        if (passiveAmount == 1) {
-            description = DESCRIPTIONS[0] + passiveAmount + DESCRIPTIONS[1] + DESCRIPTIONS[3] + evokeAmount + DESCRIPTIONS[4];
-        } else if (passiveAmount > 1) {
-            description = DESCRIPTIONS[0] + passiveAmount + DESCRIPTIONS[2] + DESCRIPTIONS[3] + evokeAmount + DESCRIPTIONS[4];
-        }
+        applyFocus();
+        description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + passiveAmount + DESCRIPTIONS[2] + DESCRIPTIONS[3];
     }
 
     @Override
     public void applyFocus() {
-        passiveAmount = basePassiveAmount;
+        passiveAmount = UtilityClass.GetLethality(AbstractDungeon.player);;
         evokeAmount = baseEvokeAmount;
     }
 
     @Override
     public void onEvoke() { // 1.On Orb Evoke
-
         AbstractDungeon.actionManager.addToBottom( // 2.Damage all enemies
-                new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(evokeAmount, true, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE));
-        // The damage matrix is how orb damage all enemies actions have to be assigned. For regular cards that do damage to everyone, check out cleave or whirlwind - they are a bit simpler.
-
+                new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, passiveAmount), AbstractGameAction.AttackEffect.NONE));
+                  // The damage matrix is how orb damage all enemies actions have to be assigned. For regular cards that do damage to everyone, check out cleave or whirlwind - they are a bit simpler.
 
         AbstractDungeon.actionManager.addToBottom(new SFXAction("TINGSHA")); // 3.And play a Jingle Sound.
         // For a list of sound effects you can use, look under com.megacrit.cardcrawl.audio.SoundMaster - you can see the list of keys you can use there. As far as previewing what they sound like, open desktop-1.0.jar with something like 7-Zip and go to audio. Reference the file names provided. (Thanks fiiiiilth)
@@ -86,11 +84,18 @@ public class DefaultOrb extends CustomOrb {
 
     @Override
     public void onStartOfTurn() {// 1.At the start of your turn.
-        AbstractDungeon.actionManager.addToBottom(// 2.This orb will have a flare effect
+        /*AbstractDungeon.actionManager.addToBottom(// 2.This orb will have a flare effect
                 new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.FROST), 0.1f));
 
         AbstractDungeon.actionManager.addToBottom(// 3. And draw you cards.
-                new DrawCardAction(AbstractDungeon.player, passiveAmount));
+               new DrawCardAction(AbstractDungeon.player, passiveAmount));
+               */
+    }
+
+    @Override
+    public void onEndOfTurn() {
+        AbstractDungeon.actionManager.addToBottom(new EvokeOrbAction(1));
+        AbstractDungeon.actionManager.addToBottom(new DecreaseMaxOrbAction(1));
     }
 
     @Override
@@ -131,6 +136,6 @@ public class DefaultOrb extends CustomOrb {
 
     @Override
     public AbstractOrb makeCopy() {
-        return new DefaultOrb();
+        return new ThornVolley();
     }
 }

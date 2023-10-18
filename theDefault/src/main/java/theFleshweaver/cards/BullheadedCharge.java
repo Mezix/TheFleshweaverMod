@@ -34,7 +34,7 @@ public class BullheadedCharge extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC_NUMBER;
-        defaultBaseSecondMagicNumber = defaultSecondMagicNumber = SECOND_MAGIC_NUMBER;
+        baseSecondMagicNumber = secondMagicNumber = SECOND_MAGIC_NUMBER;
     }
 
     @Override
@@ -52,6 +52,6 @@ public class BullheadedCharge extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         int Lethality = UtilityClass.GetLethality(p);
         AbstractDungeon.actionManager.addToBottom(new LoseHPAction(m, p, Lethality, AbstractGameAction.AttackEffect.NONE));
-        if(Lethality >= magicNumber)  AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, -defaultSecondMagicNumber, 0, 0, true));
+        if(Lethality >= magicNumber)  AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, -secondMagicNumber, 0, 0, true));
     }
 }

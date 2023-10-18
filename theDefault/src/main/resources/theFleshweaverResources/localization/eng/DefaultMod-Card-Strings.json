@@ -37,9 +37,9 @@
     "NAME": "Defensive Thorns",
     "DESCRIPTION": "Gain !B! Block. Gain !M! theFleshweaver:Vitality."
   },
-  "theFleshweaver:ThornsEdge": {
+  "theFleshweaver:ThornShot": {
     "NAME": "Thorn's Edge",
-    "DESCRIPTION": "Deal !D! damage. Gain !M! theFleshweaver:Lethality."
+    "DESCRIPTION": "Deal !D! damage. Gain !M! Temporary theFleshweaver:Lethality. Channel !theFleshweaver:SecondMagic! theFleshweaver:Thorn_Volley."
   },
   "theFleshweaver:Contemplate": {
     "NAME": "Contemplate",
