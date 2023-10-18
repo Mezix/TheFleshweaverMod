@@ -15,6 +15,9 @@ import theFleshweaver.actions.GainMagicalRotAction;
 import theFleshweaver.characters.TheFleshweaver;
 import theFleshweaver.patches.CurrentLargestStat;
 import theFleshweaver.powers.MagicalRotPower;
+import theFleshweaver.transformingCards.RitualShield;
+import theFleshweaver.transformingCards.RitualSword;
+import theFleshweaver.transformingCards.RitualWand;
 import theFleshweaver.util.UtilityClass;
 
 import static theFleshweaver.TheFleshweaverMod.makeCardPath;
@@ -37,14 +40,17 @@ public class RitualStaff extends AbstractDynamicCard {
     public static final String IMG_DEFAULT = makeCardPath("RitualStaff.png");
 
     //  Lethality
+    private static final CardStrings LETHALITY_STRINGS = CardCrawlGame.languagePack.getCardStrings(RitualSword.ID);
     public static final String IMG_LETHALITY = makeCardPath("RitualStaffL.png");
     private static final int MAGIC_NUMBER = 1;
 
     //  Vitality
+    private static final CardStrings VITALITY_STRINGS = CardCrawlGame.languagePack.getCardStrings(RitualShield.ID);
     public static final String IMG_VITALITY = makeCardPath("RitualStaffV.png");
     private static final int BLOCK = 4;
 
     //  Thaumaturgy
+    private static final CardStrings THAUMATURGY_STRINGS = CardCrawlGame.languagePack.getCardStrings(RitualWand.ID);
     public static final String IMG_THAUMATURGY = makeCardPath("RitualStaffT.png");
     private static final int SECOND_MAGIC_NUMBER = 4; // Magical Rot gain amount
 
@@ -55,8 +61,7 @@ public class RitualStaff extends AbstractDynamicCard {
         baseMagicNumber = magicNumber = MAGIC_NUMBER;
         baseSecondMagicNumber = secondMagicNumber = SECOND_MAGIC_NUMBER;
 
-        //this.cardsToPreview = new VitalityCard().makeCopy();
-        MultiCardPreview.add(this, new LethalityCard(), new VitalityCard(), new ThaumaturgyCard());
+        MultiCardPreview.add(this, new RitualSword(), new RitualShield(), new RitualWand());
     }
 
     @Override
@@ -74,19 +79,19 @@ public class RitualStaff extends AbstractDynamicCard {
         {
             IMG = IMG_LETHALITY;
             name = "Ritual Sword";
-            rawDescription = STRINGS.EXTENDED_DESCRIPTION[0] + STRINGS.EXTENDED_DESCRIPTION[1];
+            rawDescription = LETHALITY_STRINGS.DESCRIPTION;
         }
         else if(stat.equals(CurrentLargestStat.StatType.Vitality))
         {
             IMG = IMG_VITALITY;
             name = "Ritual Shield";
-            rawDescription = STRINGS.EXTENDED_DESCRIPTION[0] + STRINGS.EXTENDED_DESCRIPTION[2];
+            rawDescription = VITALITY_STRINGS.DESCRIPTION;
         }
         else if(stat.equals(CurrentLargestStat.StatType.Thaumaturgy))
         {
             IMG = IMG_THAUMATURGY;
             name = "Ritual Wand";
-            rawDescription = STRINGS.EXTENDED_DESCRIPTION[0] + STRINGS.EXTENDED_DESCRIPTION[3];
+            rawDescription = THAUMATURGY_STRINGS.DESCRIPTION;
         }
         else
         {
@@ -94,11 +99,11 @@ public class RitualStaff extends AbstractDynamicCard {
             name = "Ritual Staff";
             rawDescription = STRINGS.DESCRIPTION;
         }
-
         textureImg = IMG;
-        if (IMG != null) {
-            loadCardImage(IMG);
-        }
+        if (IMG != null) loadCardImage(IMG);
+        if(upgraded) name += "+";
+
+        update();
         initializeDescription();
     }
 

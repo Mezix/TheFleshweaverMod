@@ -9,12 +9,19 @@
   },
   "theFleshweaver:RitualStaff": {
     "NAME": "Ritual Staff",
-    "DESCRIPTION": "Deal !D! damage. NL Morphs into a different version depending on your highest stat.",
-    "EXTENDED_DESCRIPTION": [
-      "Deal !D! damage.",
-      " Apply !M! Vulnerable.",
-      " Gain !B! Block. NL Deal damage equal to your theFleshweaver:Vitality to all attacking Enemies.",
-      " Deal Damage equal to your theFleshweaver:Magical_Rot Rot to all Enemies. Lose all your theFleshweaver:Magical_Rot. NL Gain !theFleshweaver:SecondMagic! theFleshweaver:Magical_Rot."]
+    "DESCRIPTION": "Deal !D! damage. NL Morphs into a different version depending on your highest stat."
+  },
+  "theFleshweaver:RitualSword": {
+    "NAME": "Ritual Sword",
+    "DESCRIPTION": "Deal !D! damage. Apply !M! Vulnerable."
+  },
+  "theFleshweaver:RitualShield": {
+    "NAME": "Ritual Shield",
+    "DESCRIPTION": "Deal !D! damage. Gain !B! Block. NL Deal damage equal to your theFleshweaver:Vitality to all attacking Enemies."
+  },
+  "theFleshweaver:RitualWand": {
+    "NAME": "Ritual Wand",
+    "DESCRIPTION": "Deal !D! damage. Deal Damage equal to your theFleshweaver:Magical_Rot Rot to all Enemies. Lose all your theFleshweaver:Magical_Rot. NL Gain !theFleshweaver:SecondMagic! theFleshweaver:Magical_Rot."
   },
   "theFleshweaver:RitualOrb": {
     "NAME": "Ritual Orb",
@@ -35,15 +42,15 @@
   },
   "theFleshweaver:DefensiveThorns": {
     "NAME": "Defensive Thorns",
-    "DESCRIPTION": "Gain !B! Block. Gain !M! theFleshweaver:Vitality."
+    "DESCRIPTION": "Gain !B! Block. Gain !M! Temporary theFleshweaver:Vitality."
   },
   "theFleshweaver:ThornShot": {
-    "NAME": "Thorn's Edge",
+    "NAME": "Thorn Shot",
     "DESCRIPTION": "Deal !D! damage. Gain !M! Temporary theFleshweaver:Lethality. Channel !theFleshweaver:SecondMagic! theFleshweaver:Thorn_Volley."
   },
   "theFleshweaver:Contemplate": {
     "NAME": "Contemplate",
-    "DESCRIPTION": "Gain !M! theFleshweaver:Thaumaturgy and !theFleshweaver:SecondMagic! theFleshweaver:Magical_Rot."
+    "DESCRIPTION": "Gain !M! theFleshweaver:Thaumaturgy and !theFleshweaver:SecondMagic! Temporary theFleshweaver:Magical_Rot."
   },
   "theFleshweaver:DrippingIdol": {
     "NAME": "Dripping Idol",

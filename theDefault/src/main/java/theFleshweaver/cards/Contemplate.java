@@ -1,5 +1,6 @@
 package theFleshweaver.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -7,6 +8,8 @@ import theFleshweaver.TheFleshweaverMod;
 import theFleshweaver.actions.GainMagicalRotAction;
 import theFleshweaver.actions.GainStatAction;
 import theFleshweaver.characters.TheFleshweaver;
+import theFleshweaver.powers.LoseLethalityPower;
+import theFleshweaver.powers.LoseThaumaturgyPower;
 
 import static theFleshweaver.TheFleshweaverMod.makeCardPath;
 
@@ -31,6 +34,7 @@ public class Contemplate extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, 0,0, magicNumber, true));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseThaumaturgyPower(p, p, magicNumber)));
         AbstractDungeon.actionManager.addToBottom(new GainMagicalRotAction(AbstractDungeon.player, secondMagicNumber));
     }
 

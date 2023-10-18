@@ -1,5 +1,6 @@
 package theFleshweaver.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -7,6 +8,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theFleshweaver.TheFleshweaverMod;
 import theFleshweaver.actions.GainStatAction;
 import theFleshweaver.characters.TheFleshweaver;
+import theFleshweaver.powers.LoseLethalityPower;
+import theFleshweaver.powers.LoseVitalityPower;
 
 import static theFleshweaver.TheFleshweaverMod.makeCardPath;
 
@@ -32,6 +35,7 @@ public class DefensiveThorns extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, this.block));
         AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, 0, magicNumber, 0, true));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseVitalityPower(p, p, magicNumber)));
     }
 
     @Override
