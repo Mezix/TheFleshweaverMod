@@ -34,25 +34,6 @@ public class DruidicToken extends CustomRelic {
                 BaseMod.getKeywordTitle(DESCRIPTIONS[1].toLowerCase()),
                 BaseMod.getKeywordDescription(DESCRIPTIONS[1].toLowerCase())
         ));
-        tips.add(new PowerTip(
-                BaseMod.getKeywordTitle(DESCRIPTIONS[2].toLowerCase()),
-                BaseMod.getKeywordDescription(DESCRIPTIONS[2].toLowerCase())
-        ));
-        tips.add(new PowerTip(
-                BaseMod.getKeywordTitle(DESCRIPTIONS[3].toLowerCase()),
-                BaseMod.getKeywordDescription(DESCRIPTIONS[3].toLowerCase())
-        ));
-        tips.add(new PowerTip(
-                BaseMod.getKeywordTitle(DESCRIPTIONS[4].toLowerCase()),
-                BaseMod.getKeywordDescription(DESCRIPTIONS[4].toLowerCase())
-        ));
-    }
-
-    // Flash at the start of Battle.
-    @Override
-    public void atBattleStartPreDraw()
-    {
-        AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, 4, 4,4, false));
     }
 
     @Override

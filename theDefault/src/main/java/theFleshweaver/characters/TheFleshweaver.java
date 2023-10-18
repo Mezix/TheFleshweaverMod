@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
@@ -22,6 +23,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theFleshweaver.TheFleshweaverMod;
+import theFleshweaver.actions.GainStatAction;
 import theFleshweaver.cards.*;
 import theFleshweaver.relics.DruidicToken;
 
@@ -114,7 +116,6 @@ public class TheFleshweaver extends CustomPlayer {
 
         // =============== /TEXTURES, ENERGY, LOADOUT/ =================
 
-
         // =============== ANIMATIONS =================  
 
         loadAnimation(
@@ -133,6 +134,12 @@ public class TheFleshweaver extends CustomPlayer {
         dialogY = (drawY + 220.0F * Settings.scale); // you can just copy these values
 
         // =============== /TEXT BUBBLE LOCATION/ =================
+
+    }
+
+    @Override
+    public void applyStartOfCombatLogic() {
+        AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, 4, 4,4, false));
 
     }
 
@@ -201,7 +208,7 @@ public class TheFleshweaver extends CustomPlayer {
     // Ascension 14 or higher. (ironclad loses 5, defect and silent lose 4 hp respectively)
     @Override
     public int getAscensionMaxHPLoss() {
-        return 0;
+        return 5;
     }
 
     // Should return the card color enum to be associated with your character.

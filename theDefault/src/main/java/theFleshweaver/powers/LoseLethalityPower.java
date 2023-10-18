@@ -19,12 +19,12 @@ import static theFleshweaver.TheFleshweaverMod.makePowerPath;
 public class LoseLethalityPower extends AbstractPower{
     public AbstractCreature source;
 
-    public static final String POWER_ID = TheFleshweaverMod.makeID("LethalityPower");
+    public static final String POWER_ID = TheFleshweaverMod.makeID("LoseLethalityPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private static final Texture texture128 = TextureLoader.getTexture(makePowerPath("Lethality_128.png"));
-    private static final Texture texture48 = TextureLoader.getTexture(makePowerPath("Lethality_48.png"));
+    private static final Texture texture128 = TextureLoader.getTexture(makePowerPath("LoseLethality_128.png"));
+    private static final Texture texture48 = TextureLoader.getTexture(makePowerPath("LoseLethality_48.png"));
 
     public LoseLethalityPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
@@ -43,12 +43,12 @@ public class LoseLethalityPower extends AbstractPower{
     }
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
-        AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, amount,0, 0, true));
-        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "Flex"));
+        AbstractDungeon.actionManager.addToBottom(new GainStatAction(AbstractDungeon.player, -amount,0, 0, true));
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 }

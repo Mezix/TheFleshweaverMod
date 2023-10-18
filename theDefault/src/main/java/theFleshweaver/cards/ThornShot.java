@@ -1,18 +1,18 @@
 package theFleshweaver.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
-import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theFleshweaver.TheFleshweaverMod;
-import theFleshweaver.actions.ChannelThornVolley;
+import theFleshweaver.actions.ChannelThornVolleyAction;
 import theFleshweaver.actions.GainStatAction;
 import theFleshweaver.characters.TheFleshweaver;
-import theFleshweaver.orbs.ThornVolley;
+import theFleshweaver.powers.InfectedVeinsPower;
+import theFleshweaver.powers.LoseLethalityPower;
 
 import static theFleshweaver.TheFleshweaverMod.makeCardPath;
 
@@ -50,6 +50,7 @@ public class ThornShot extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         AbstractDungeon.actionManager.addToBottom(new GainStatAction(p, magicNumber, 0, 0, true));
-        AbstractDungeon.actionManager.addToBottom(new ChannelThornVolley(secondMagicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseLethalityPower(p, p, magicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new ChannelThornVolleyAction(secondMagicNumber));
     }
 }

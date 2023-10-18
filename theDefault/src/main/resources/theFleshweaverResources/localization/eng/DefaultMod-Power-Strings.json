@@ -1,23 +1,38 @@
 {
-        "theFleshweaver:MagicalRotPower": {
-                "NAME": "Magical Rot",
-                "DESCRIPTIONS": ["Deal #r",
-                        " damage at the end of your Turn to EVERYONE."]
-        },
         "theFleshweaver:LethalityPower": {
-        "NAME": "Lethality",
-        "DESCRIPTIONS": ["Affects the efficiency of damaging attacks."]
+                "NAME": "Lethality",
+                "DESCRIPTIONS": ["Affects the efficiency of damaging attacks."]
+        },
+        "theFleshweaver:LoseLethalityPower": {
+                "NAME": "Lose Lethality",
+                "DESCRIPTIONS": ["Lose #b",
+                        " Lethality at the end of your turn."]
         },
         "theFleshweaver:ThaumaturgyPower": {
                 "NAME": "Thaumaturgy",
                 "DESCRIPTIONS": ["Affects the efficiency of your spellcasting."]
         },
+        "theFleshweaver:LoseThaumaturgyPower": {
+                "NAME": "Lose Thaumaturgy",
+                "DESCRIPTIONS": ["Lose #b",
+                        " Thaumaturgy at the end of your turn."]
+        },
         "theFleshweaver:VitalityPower": {
-                "NAME": "Vitality",
+                "NAME": "Lose Vitality",
                 "DESCRIPTIONS": ["Affects the efficiency of defensive abilities."]
+        },
+        "theFleshweaver:LoseVitalityPower": {
+                "NAME": "Vitality",
+                "DESCRIPTIONS": ["Lose #b",
+                "Vitality at the end of your turn."]
         },
         "theFleshweaver:InfectedVeinsPower": {
                 "NAME": "Infected Veins",
                 "DESCRIPTIONS": ["Draw 1 Card each time you gain 1 Magical Rot."]
+        },
+        "theFleshweaver:MagicalRotPower": {
+                "NAME": "Magical Rot",
+                "DESCRIPTIONS": ["Deal #r",
+                        " damage at the end of your Turn to EVERYONE."]
         }
 }

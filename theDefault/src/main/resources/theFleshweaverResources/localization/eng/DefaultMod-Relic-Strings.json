@@ -3,11 +3,8 @@
     "NAME": "Druidic Token",
     "FLAVOR": "A vestige of an identity now lost to you.",
     "DESCRIPTIONS": [
-      "Deal #b3 Damage each time you #yWeave. Gain #b4 #yLethality, #yVitality and #yThaumaturgy.",
-      "theFleshweaver:Weave",
-      "theFleshweaver:Lethality",
-      "theFleshweaver:Vitality",
-      "theFleshweaver:Thaumaturgy"
+      "Deal #b3 Damage each time you #yWeave.",
+      "theFleshweaver:Weave"
     ]
   }
 }

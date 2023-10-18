@@ -37,7 +37,7 @@ public class GainStatAction extends AbstractGameAction {
 
                 CurrentLargestStat.StatType oldLargestStat = CurrentLargestStat.currentLargestStat.get(AbstractDungeon.actionManager);
 
-                System.out.println("OLD: Largest Stat is: " + oldLargestStat.toString());
+                //System.out.println("OLD: Largest Stat is: " + oldLargestStat.toString());
                 //  Gain the Stats
 
                 if(LethalityAmount != 0) AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new LethalityPower(target, target, LethalityAmount)));
