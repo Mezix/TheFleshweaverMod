@@ -65,6 +65,18 @@
   },
   "theFleshweaver:BullheadedCharge": {
     "NAME": "Bull-Headed Charge",
-    "DESCRIPTION": "Deal !D! Damage. NL Enemies lose HP equal to your theFleshweaver:Lethality. NL theFleshweaver:Lethality !M!: Lose !theFleshweaver:SecondMagic! theFleshweaver:Lethality."
+    "DESCRIPTION": "Deal !D! Damage. NL Enemies lose HP equal to your theFleshweaver:Lethality. NL theFleshweaver:Lethality !M!: Take Damage equal to your theFleshweaver:Lethality."
+  },
+  "theFleshweaver:BloodRush": {
+    "NAME": "Blood Rush",
+    "DESCRIPTION": "Deal !D! Damage. NL theFleshweaver:Lethality !M!: Draw 1 Card."
+  },
+  "theFleshweaver:Thornweaving": {
+    "NAME": "Thornweaving",
+    "DESCRIPTION": "Every time you theFleshweaver:Weave, Channel 1 theFleshweaver:Thorn_Volley."
+  },
+  "theFleshweaver:HaloOfThorns": {
+    "NAME": "Halo of Thorns",
+    "DESCRIPTION": "Gain !M! Block each time you Channel 1 theFleshweaver:Thorn_Volley."
   }
 }

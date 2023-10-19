@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theFleshweaver.powers.InfectedVeinsPower;
 import theFleshweaver.powers.MagicalRotPower;
+import theFleshweaver.powers.ThornweavingPower;
 import theFleshweaver.relics.DruidicToken;
 
 public class WeaveAction extends AbstractGameAction {
@@ -23,6 +24,8 @@ public class WeaveAction extends AbstractGameAction {
             int damage = token.WeaveDamage;
             this.addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS), AttackEffect.SLASH_HORIZONTAL));
         }
+        if(AbstractDungeon.player.hasPower(ThornweavingPower.POWER_ID))
+            AbstractDungeon.actionManager.addToBottom(new ChannelThornVolleyAction(1));
         this.isDone = true;
     }
 }

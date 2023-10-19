@@ -6,7 +6,7 @@
         "theFleshweaver:LoseLethalityPower": {
                 "NAME": "Lose Lethality",
                 "DESCRIPTIONS": ["Lose #b",
-                        " Lethality at the end of your turn."]
+                        " #yLethality at the end of your turn."]
         },
         "theFleshweaver:ThaumaturgyPower": {
                 "NAME": "Thaumaturgy",
@@ -15,7 +15,7 @@
         "theFleshweaver:LoseThaumaturgyPower": {
                 "NAME": "Lose Thaumaturgy",
                 "DESCRIPTIONS": ["Lose #b",
-                        " Thaumaturgy at the end of your turn."]
+                        " #yThaumaturgy at the end of your turn."]
         },
         "theFleshweaver:VitalityPower": {
                 "NAME": "Lose Vitality",
@@ -24,15 +24,24 @@
         "theFleshweaver:LoseVitalityPower": {
                 "NAME": "Vitality",
                 "DESCRIPTIONS": ["Lose #b",
-                "Vitality at the end of your turn."]
+                " #yVitality at the end of your turn."]
         },
         "theFleshweaver:InfectedVeinsPower": {
                 "NAME": "Infected Veins",
-                "DESCRIPTIONS": ["Draw 1 Card each time you gain 1 Magical Rot."]
+                "DESCRIPTIONS": ["Draw #b1 Card each time you gain #b1 #yMagical #yRot."]
+        },
+        "theFleshweaver:ThornweavingPower": {
+                "NAME": "Thornweaving",
+                "DESCRIPTIONS": ["Channel #b1 #yThorn #yVolley each time you #yWeave."]
+        },
+        "theFleshweaver:HaloOfThornsPower": {
+                "NAME": "Halo Of Thorns",
+                "DESCRIPTIONS": ["Gain #b",
+                        " Block each time you #yChannel 1 Thorn Volley."]
         },
         "theFleshweaver:MagicalRotPower": {
                 "NAME": "Magical Rot",
                 "DESCRIPTIONS": ["Deal #r",
-                        " damage at the end of your Turn to EVERYONE."]
+                        " Damage at the end of your Turn to EVERYONE."]
         }
 }
