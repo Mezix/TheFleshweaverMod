@@ -52,8 +52,7 @@ public class ThornVolley extends CustomOrb {
         // parameters are used. If your orb doesn't use any numbers/doesn't change e.g "Evoke: shuffle your draw pile."
         // then you don't need to override the update description method and can just pass in the parameters here.
         super(ORB_ID, orbString.NAME, PASSIVE_AMOUNT, EVOKE_AMOUNT, DESCRIPTIONS[0], DESCRIPTIONS[1], makeOrbPath("default_orb.png"));
-
-        updateDescription();
+        this.updateDescription();
 
         angle = MathUtils.random(360.0f); // More Animation-related Numbers
         channelAnimTimer = 0.5f;
@@ -61,40 +60,41 @@ public class ThornVolley extends CustomOrb {
 
     @Override
     public void updateDescription() { // Set the on-hover description of the orb
-        applyFocus();
-        description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + passiveAmount + DESCRIPTIONS[2] + DESCRIPTIONS[3];
+        if(evokeAmount <= 1)
+            description = DESCRIPTIONS[0] + passiveAmount + DESCRIPTIONS[1] + DESCRIPTIONS[2];
+        else
+            description = DESCRIPTIONS[0] + passiveAmount + DESCRIPTIONS[1] + DESCRIPTIONS[3] + evokeAmount + DESCRIPTIONS[4];
     }
-
     @Override
-    public void applyFocus() {
-        passiveAmount = UtilityClass.GetLethality(AbstractDungeon.player);;
-        evokeAmount = baseEvokeAmount;
-    }
-
-    @Override
-    public void onEvoke() { // 1.On Orb Evoke
-        AbstractDungeon.actionManager.addToBottom( // 2.Damage all enemies
-                new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, passiveAmount), AbstractGameAction.AttackEffect.NONE));
-                  // The damage matrix is how orb damage all enemies actions have to be assigned. For regular cards that do damage to everyone, check out cleave or whirlwind - they are a bit simpler.
-
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("TINGSHA")); // 3.And play a Jingle Sound.
-        // For a list of sound effects you can use, look under com.megacrit.cardcrawl.audio.SoundMaster - you can see the list of keys you can use there. As far as previewing what they sound like, open desktop-1.0.jar with something like 7-Zip and go to audio. Reference the file names provided. (Thanks fiiiiilth)
-
-    }
-
-    @Override
-    public void onStartOfTurn() {// 1.At the start of your turn.
-        /*AbstractDungeon.actionManager.addToBottom(// 2.This orb will have a flare effect
-                new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.FROST), 0.1f));
-
-        AbstractDungeon.actionManager.addToBottom(// 3. And draw you cards.
-               new DrawCardAction(AbstractDungeon.player, passiveAmount));
-               */
+    public void update() {
+        super.update();
+        passiveAmount = basePassiveAmount = UtilityClass.GetLethality(AbstractDungeon.player);
+        updateDescription();
     }
 
     @Override
     public void onEndOfTurn() {
-        AbstractDungeon.actionManager.addToBottom(new EvokeOrbAction(1));
+        float speedTime = 0.2F / (float)AbstractDungeon.player.orbs.size();
+        if (Settings.FAST_MODE) {
+            speedTime = 0.0F;
+        }
+        evokeAmount--;
+        if(evokeAmount <= 0) AbstractDungeon.actionManager.addToBottom(new EvokeOrbAction(1));
+    }
+    @Override
+    public void onEvoke()
+    {
+        float speedTime = 0.2F / (float)AbstractDungeon.player.orbs.size();
+        if (Settings.FAST_MODE) {
+            speedTime = 0.0F;
+        }
+        AbstractDungeon.actionManager.addToBottom(
+                new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, passiveAmount), AbstractGameAction.AttackEffect.NONE));
+        // The damage matrix is how orb damage all enemies actions have to be assigned. For regular cards that do damage to everyone, check out cleave or whirlwind - they are a bit simpler.
+
+        AbstractDungeon.actionManager.addToBottom(new SFXAction("TINGSHA")); // 3.And play a Jingle Sound.
+        // For a list of sound effects you can use, look under com.megacrit.cardcrawl.audio.SoundMaster - you can see the list of keys you can use there. As far as previewing what they sound like, open desktop-1.0.jar with something like 7-Zip and go to audio. Reference the file names provided. (Thanks fiiiiilth)
+
         AbstractDungeon.actionManager.addToBottom(new DecreaseMaxOrbAction(1));
     }
 

@@ -5,11 +5,15 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import theFleshweaver.orbs.ThornVolley;
 import theFleshweaver.patches.CurrentLargestStat;
 import theFleshweaver.powers.LethalityPower;
 import theFleshweaver.powers.ThaumaturgyPower;
 import theFleshweaver.powers.VitalityPower;
 import theFleshweaver.util.UtilityClass;
+
+import java.util.List;
 
 public class GainStatAction extends AbstractGameAction {
     int LethalityAmount;
@@ -61,11 +65,24 @@ public class GainStatAction extends AbstractGameAction {
                 else if (LAmount > VAmount && LAmount > TAmount) newLargestStat = CurrentLargestStat.StatType.Lethality;
                 else if (VAmount > TAmount) newLargestStat = CurrentLargestStat.StatType.Vitality;
                 else newLargestStat = CurrentLargestStat.StatType.Thaumaturgy;
-                System.out.println("L: " + LAmount + " - V: " + VAmount + " - T: " + TAmount);
-                System.out.println("NEW: Largest Stat is: " + newLargestStat.toString());
+
+                //System.out.println("L: " + LAmount + " - V: " + VAmount + " - T: " + TAmount);
+                //System.out.println("NEW: Largest Stat is: " + newLargestStat.toString());
+
                 if(!oldLargestStat.equals(newLargestStat)) {
                     CurrentLargestStat.SetLargestStat(newLargestStat);
                     if(shouldWeave) AbstractDungeon.actionManager.addToBottom(new WeaveAction());
+                }
+
+                // Update Thorn Volleys according to stats
+                List<AbstractOrb> orbs = AbstractDungeon.player.orbs;
+                for (AbstractOrb orb : orbs)
+                {
+                    if(orb.ID.equals(ThornVolley.ORB_ID))
+                    {
+                        orb.update();
+                        orb.updateDescription();
+                    }
                 }
             }
         }

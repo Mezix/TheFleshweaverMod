@@ -2,11 +2,10 @@
   "theFleshweaver:ThornVolley": {
     "NAME": "Thorn Volley",
     "DESCRIPTION": [
-      "Evoke: ",
       "Deal #b",
       " damage to a random enemy",
       " at the end of your turn.",
-      "in #b",
+      " in #b",
       " turns."
     ]
   }

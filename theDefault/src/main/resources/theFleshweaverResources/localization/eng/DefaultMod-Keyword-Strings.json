@@ -62,6 +62,6 @@
       "Thorn_Volley",
       "thorn_volley",
       "thornvolley"],
-    "DESCRIPTION": "Orb: Deal Damage equal to your Lethality to a random Enemy. Evoke automatically at the end of your turn."
+    "DESCRIPTION": "Orb: Deal Damage equal to your #yLethality to a random Enemy. #yEvoke automatically at the end of your turn."
   }
 ]

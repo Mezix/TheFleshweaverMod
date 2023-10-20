@@ -78,5 +78,17 @@
   "theFleshweaver:HaloOfThorns": {
     "NAME": "Halo of Thorns",
     "DESCRIPTION": "Gain !M! Block each time you Channel 1 theFleshweaver:Thorn_Volley."
+  },
+  "theFleshweaver:IdleFingers": {
+    "NAME": "Idle Fingers",
+    "DESCRIPTION": "Draw a Card for each channeled Thorn Volley."
+  },
+  "theFleshweaver:PressAdvantage": {
+    "NAME": "Press Advantage",
+    "DESCRIPTION": "Channel !M! theFleshweaver:Thorn_Volley. NL If the enemy is not attacking, gain 1 theFleshweaver:Lethality."
+  },
+  "theFleshweaver:GatheringPower": {
+    "NAME": "Gathering Power",
+    "DESCRIPTION": "Delay all your channeled theFleshweaver:Thorn_Volley and multiply their Damage by !M!."
   }
 }
